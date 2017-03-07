@@ -8,6 +8,6 @@ $config = [];
 //$config['database'] = 'database';
 
 $config['host']     = 'localhost';
-$config['username'] = 'yunohost';
-$config['password'] = 'yunohost';
-$config['database'] = 'yunohost_test';
+$config['username'] = 'yunohostusr';
+$config['password'] = 'yunohostpw';
+$config['database'] = 'yunohostdb';
