@@ -21,8 +21,6 @@ path_url=$YNH_APP_ARG_PATH
 admin=$YNH_APP_ARG_ADMIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
 language=$YNH_APP_ARG_LANGUAGE
-db_create=$YNH_APP_ARG_DB_CREATE
-db_pwd=$YNH_APP_ARG_DB_PWD
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
