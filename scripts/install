@@ -21,6 +21,8 @@ path_url=$YNH_APP_ARG_PATH
 admin=$YNH_APP_ARG_ADMIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
 language=$YNH_APP_ARG_LANGUAGE
+db_create=$YNH_APP_ARG_DB_CREATE
+db_pwd=$YNH_APP_ARG_DB_PWD
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
@@ -48,20 +50,20 @@ sudo chown -R root: $src_path
 # a database, an associated user and save the password in app settings.
 #
 # # Generate MySQL password and create database
-dbuser=$app
-dbname=$app
-dbpass=$(ynh_string_random 12)
+db_user=$(echo ${usr}.${domain}.${sitename} | tr -d . | tr -d - | tr -d _ )
+db_name=$(echo ${domain}.${sitename} | tr -d . | tr -d - | tr -d _ )
+db_pwd=$(ynh_string_random 12)
 ynh_app_setting_set "$app" mysqlpwd "$dbpass"
-ynh_mysql_create_db "$dbname" "$dbuser" "$dbpass"
+ynh_mysql_create_db "$db_name" "$db_user" "$db_pwd"
 #
 # # Load initial SQL into the new database
 ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" \ < "../sources/sql/schema.sql"
 ### MySQL end ###
 
 ### MySQL Configuration ###
-sudo sed -i "s/yunohostusr/$dbuser/g" $src_path/config.php
-sudo sed -i "s/yunohostpw/$dbpass/g" $src_path/config.php
-sudo sed -i "s/yunohostdb/$dbname/g" $src_path/config.php
+sudo sed -i "s/yunohostusr/$db_user/g" $src_path/config.php
+sudo sed -i "s/yunohostpw/$db_pwd/g" $src_path/config.php
+sudo sed -i "s/yunohostdb/$db_name/g" $src_path/config.php
 ### MySQL Configuration END ###
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
