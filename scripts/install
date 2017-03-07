@@ -48,7 +48,7 @@ sudo chown -R root: $src_path
 # a database, an associated user and save the password in app settings.
 #
 # # Generate MySQL password and create database
-db_user=$(echo ${admin}.${domain}.phpapp | tr -d . | tr -d - | tr -d _ )
+db_user=$(echo ${admin}.${domain}.${app} | tr -d . | tr -d - | tr -d _ )
 db_name=$(echo ${domain}.phpapp | tr -d . | tr -d - | tr -d _ )
 db_pwd=$(ynh_string_random 12)
 ynh_app_setting_set "$app" mysqlpwd "$db_pwd"
