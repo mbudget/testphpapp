@@ -48,14 +48,14 @@ sudo chown -R root: $src_path
 # a database, an associated user and save the password in app settings.
 #
 # # Generate MySQL password and create database
-# dbuser=$app
-# dbname=$app
-# dbpass=$(ynh_string_random 12)
-# ynh_app_setting_set "$app" mysqlpwd "$dbpass"
-# ynh_mysql_create_db "$dbname" "$dbuser" "$dbpass"
+dbuser=$app
+dbname=$app
+dbpass=$(ynh_string_random 12)
+ynh_app_setting_set "$app" mysqlpwd "$dbpass"
+ynh_mysql_create_db "$dbname" "$dbuser" "$dbpass"
 #
- # # Load initial SQL into the new database
- ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" \ < "../sources/sql/schema.sql"
+# # Load initial SQL into the new database
+ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" \ < "../sources/sql/schema.sql"
 ### MySQL end ###
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
