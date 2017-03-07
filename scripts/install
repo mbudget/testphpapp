@@ -55,7 +55,7 @@ ynh_app_setting_set "$app" mysqlpwd "$dbpass"
 ynh_mysql_create_db "$db_name" "$db_user" "$db_pwd"
 #
 # # Load initial SQL into the new database
-ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" \ < "../sources/sql/schema.sql"
+ynh_mysql_connect_as "$db_user" "$db_pwd" "$db_name" \ < "../sources/sql/schema.sql"
 ### MySQL end ###
 
 ### MySQL Configuration ###
