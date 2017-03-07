@@ -59,9 +59,9 @@ ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" \ < "../sources/sql/schema.sq
 ### MySQL end ###
 
 ### MySQL Configuration ###
-sudo sed -i "s/yunohostusr/$dbuser/g" $src_path/config/config.php
-sudo sed -i "s/yunohostpw/$dbpass/g" $src_path/config/config.php
-sudo sed -i "s/yunohostdb/$dbname/g" $src_path/config/config.php
+#sudo sed -i "s/yunohostusr/$dbuser/g" $src_path/config/config.php
+#sudo sed -i "s/yunohostpw/$dbpass/g" $src_path/config/config.php
+#sudo sed -i "s/yunohostdb/$dbname/g" $src_path/config/config.php
 ### MySQL Configuration END ###
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
