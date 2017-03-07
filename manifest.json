@@ -1,0 +1,66 @@
+{
+    "name": "Very stupid application",
+    "id": "phpapp",
+    "packaging_format": 1,
+    "description": {
+        "en": "A stupid, simple and ugly test for packaging YunoHost applications",
+        "de": "Ein dummer, einfacher und hässlicher Test für Packetierung von YunoHost-Anwendungen"
+    },
+    "url": "https://zhdk.ch",
+    "license": "free",
+    "maintainer": {
+        "name": "Ramon Cahenzli",
+        "email": "ramon.cahenzli@zhdk.ch",
+        "url": "http://zhdk.ch"
+    },
+    "requirements": {
+        "yunohost": ">> 2.4.0"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx",
+        "php5-fpm",
+        "mysql"
+    ],
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain",
+                "ask": {
+                    "en": "Choose a domain name for phpapp",
+                    "de": "Wähle eine Domain Namen für phpapp"
+                },
+                "example": "example.com"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "ask": {
+                    "en": "Choose a path for your phpapp",
+                    "fr": "Wähle eine Pfad für phpapp"
+                },
+                "example": "/example",
+                "default": "/Beispiel"
+            },
+            {
+                "name": "admin",
+                "type": "user",
+                "ask": {
+                    "en": "Choose an admin user",
+                    "de": "Wähle einen Administrator"
+                },
+                "example": "gino"
+            },
+            {
+                "name": "is_public",
+                "type": "boolean",
+                "ask": {
+                    "en": "Is it a public application?",
+                    "de": "Ist es eine öffentliche Applikation?"
+                },
+                "default": true
+            },
+        ]
+    }
+}
