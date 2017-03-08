@@ -31,11 +31,11 @@ sudo chown -R root: "$src_path"
 ### MySQL (remove if not used) ###
 # If a MySQL database is used:
 # # Create and restore the database
-# dbname=$app
-# dbuser=$app
-# dbpass=$(ynh_app_setting_get "$app" mysqlpwd)
-# ynh_mysql_create_db "$dbname" "$dbuser" "$dbpass"
-# ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" < ./dump.sql
+db_name=$app
+db_user=$app
+db_pwd=$(ynh_app_setting_get "$app" mysqlpwd)
+ynh_mysql_create_db "$db_name" "$db_user" "$db_pwd"
+ynh_mysql_connect_as "$db_user" "$db_pwd" "$db_name" < ./dump.sql
 ### MySQL end ###
 
 # Restore NGINX configuration

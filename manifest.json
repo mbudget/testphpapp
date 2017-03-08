@@ -66,10 +66,10 @@
                 "name": "language",
                 "ask": {
                     "en": "Choose the application language",
-                    "fr": "Choisissez la langue de l'application"
+                    "en": "Wähle eine Sprache für die Applikation"
                 },
-                "choices": ["fr", "en"],
-                "default": "fr"
+                "choices": ["en", "de"],
+                "default": "de"
             }
 
 	]

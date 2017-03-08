@@ -16,10 +16,10 @@ ynh_backup "/var/www/${app}" "sources"
 ### MySQL (remove if not used) ###
 # If a MySQL database is used:
 # # Dump the database
-# dbname=$app
-# dbuser=$app
-# dbpass=$(ynh_app_setting_get "$app" mysqlpwd)
-# mysqldump -u "$dbuser" -p"$dbpass" --no-create-db "$dbname" > ./dump.sql
+db_name=$app
+db_user=$app
+db_pwd=$(ynh_app_setting_get "$app" mysqlpwd)
+mysqldump -u "$db_user" -p"$db_pwd" --no-create-db "$db_name" > ./dump.sql
 ### MySQL end ###
 
 # Copy NGINX configuration

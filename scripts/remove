@@ -24,10 +24,10 @@ sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
 ### MySQL (remove if not used) ###
 # If a MySQL database is used:
 # # Drop MySQL database and user
-# dbname=$app
-# dbuser=$app
-# ynh_mysql_drop_db "$dbname" || true
-# ynh_mysql_drop_user "$dbuser" || true
+db_name=$app
+db_user=$app
+ynh_mysql_drop_db "$db_name" || true
+ynh_mysql_drop_user "$db_user" || true
 ### MySQL end ###
 
 # Reload nginx service
